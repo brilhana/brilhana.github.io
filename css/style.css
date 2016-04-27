@@ -51,10 +51,6 @@ body {
   border: solid 4px #ff3c64;
 }
 
-.button {
-  color: #000;
-}
-
 .video {
   position: fixed;
   top: 50%;
