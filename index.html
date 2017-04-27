@@ -1,35 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>brilhana</title>
-  <link rel="shortcut icon" type="image/ico" href="media/logo.ico"/>
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oxygen:400,300,700">
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-<div class="content">
-  <h1 class="content__heading">Alexandre Brilhante</h1>
-  <ul class="list-inline">
-  	<li><a href="mailto:alexandre.brilhante@umontreal.ca"><i class="fa fa-envelope-o fa-fw fa-5x"></i></a></li>
-  	<li><a href="https://github.com/brilhana"><i class="fa fa-github fa-fw fa-5x"></i></a></li>
-  </ul>
+---
+layout: default
+---
+<div id="home" class="page-content wc-container">
+	<div class="posts">
+  		{% for post in site.posts limit:10 %}
+  			<div class="post">
+    			<h3 class="post-title">
+			      <a href="{{ post.url | prepend: site.baseurl | prepend: site.url }}">
+			        {{ post.title }}
+			      </a>
+    			</h3>
+
+          <p class="post-meta">
+            {% if (post.categories.size > 0 %}
+            <span class="categories">
+            {{ post.categories | array_to_sentence_string }}
+            </span> |
+            {% endif %}
+            <span class="post-date">
+            {{ post.date | date: "%b %-d, %Y" }}
+            </span>
+          </p>
+
+  				<p>
+	  				{{ post.excerpt }}
+  				</p>
+  				<p>
+  					<a href="{{ post.url | prepend: site.baseurl | prepend: site.url }}" title="{{ post.title}}">
+  						Read More
+					</a>
+  				</p>
+  			</div>
+  		{% endfor %}
+	</div>
+	<div class="post-footer">
+		<div class="column-full"><a href="{{ '/blog' | prepend: site.baseurl | prepend: site.url }}">Blog</a></div>
+	</div>
 </div>
-<video id="my-video" class="video" muted loop>
-  <source src="media/demo.mp4" type="video/mp4">
-  <source src="media/demo.ogv" type="video/ogg">
-  <source src="media/demo.webm" type="video/webm">
-</video>
-<script>
-(function() {
-  var video = document.getElementById("my-video");
-  video.addEventListener( "canplay", function() {
-    video.play();
-  });
-})();
-</script>
-</body>
-</html>
