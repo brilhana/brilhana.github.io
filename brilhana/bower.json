@@ -1,0 +1,6 @@
+{
+  "name": "brilhana",
+  "dependencies": {
+    "jquery": "~3.2.1"
+  }
+}
