@@ -4,70 +4,70 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>IFT3150</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
-        <link rel="canonical" 
-        href="http://localhost:4000/blog/IFT3150/">
-        
+        <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
+        <link rel="canonical"
+        href="http://localhost:4000/IFT3150/">
+
         <!-- Harmony styles -->
-        <link rel="stylesheet" type="text/css" href="/blog/assets/css/main.css">
+        <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
 
         <!-- Modernizr js -->
-        <script async src="/blog/assets/js/modernizr.js"></script>    
+        <script async src="/assets/js/modernizr.js"></script>
 
-        <!-- IE Fixes -->
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->        
     </head>
     <body class="theme-base-01">
         <header class="main-header">
             <div class="wc-container">
-                <h1><a href="/blog/">Alexandre Brilhante</a></h1>
+                <h1><a href="/">Alexandre Brilhante</a></h1>
                 <h2></h2>
-                <ul>
+                <link rel="shortcut icon" href="assets/favicon.ico">
+
+<ul>
 	<li>
-		<a href="http://localhost:4000/blog/about">À propos</a><span>/</span>
+		<a href="http://localhost:4000/about">À propos</a><span>/</span>
 	</li>
 	<li>
-		<a href="http://localhost:4000/blog/IFT3150">IFT3150</a><span>/</span>
+		<a href="http://localhost:4000/IFT3150">IFT3150</a><span>/</span>
 	</li>
 	<li>
-		<a href="http://localhost:4000/blog/blog">Blog</a><span>/</span>
+		<a href="http://localhost:4000/blog">Blog</a><span>/</span>
 	</li>
 	<li>
-		<a href="http://localhost:4000/blog/pointers">Pointeurs</a><span>/</span>
+		<a href="http://localhost:4000/pointers">Pointeurs</a><span>/</span>
 	</li>
 </ul>
-                
+
             </div>
         </header>
         <div class="page-content wc-container">
 	<div class="post">
 		<h1>IFT3150</h1>
 		<div class="post">
-			<dl>
-  <dt>Énoncé</dt>
-  <dd>À ajouter.</dd>
-  <dt>Superviseur</dt>
-  <dd><a href="http://www.iro.umontreal.ca/~bastin/">Fabian Bastin</a></dd>
-</dl>
+			<h3 id="description">Description</h3>
+<p>Le succès actuel des méthodes de réseaux neuronaux, en particulier de réseaux profonds, ont eu comme effet secondaire de populariser l’algorithme du gradient stochastique, connu également en programmation stochastique comme la méthode d’approximation stochastique parmi la communauté de programmation non-linéaire. Bien qu’à ce jour, de nombreuses questions demeurent ouvertes, des progrès significatifs ont été obtenus dans l’étude de la convergence de la méthode ainsi que dans la recherche de stratégies d’accélération de la méthode.</p>
+
+<p>Cette méthode d’optimisation demeure toutefois marginale dans le cadre de l’estimation de modèles de choix discrets, or le problème d’estimation par maximum de vraisemblance d’un modèle logit multinomial est mathématiquement très similaire au problème d’entraînement d’un réseau neuronal présentant des fonctions d’activation sigmoïdes. Pourtant, certaines extensions du modèle logit, en particulier le modèle mixed logit, demeure à ce jour numériquement coûteux à estimer comme chaque observation requiert d’approximer l’espérance de la probabilité de choix, typiquement par intégration Monte Carlo.</p>
+
+<p>Le but de ce projet est d’adapter l’algorithme du gradient stochastique pour l’estimation de modèles mixed logit par maximum de vraisemblance, et de vérifier numériquement son efficacité tant en termes de qualité d’estimation que de vitesse de convergence. Dans un premier temps, la taille d’approximation sera fixée pour chaque individu, permettant de comparer la méthode avec une approche directe, ou méthode batch. Par après, diverses extensions seront envisagées pour prendre en compte les faiblesses de l’algorithme de gradient stochastique que du modèle mixed logit. Tout d’abord, il est connu que le choix de la longueur de pas à chaque itération, aussi appelé taux d’apprentissage dans la communauté d’intelligence artificielle, influence significativement le succès ainsi que la rapidité de la méthode de gradient stochastique. En tenant compte des résultats théoriques récents, nous essayerons d’améliorer et d’automatiser la longueur de pas. Dans un second temps, nous intégrerons une approximation de second ordre, basée sur l’identité de l’information de Fisher, pour accélérer la méthode. Enfin, une des difficultés majeures des modèles mixed logit est la qualité d’approximation de l’espérance de chaque observation, qui non seulement affecte la précision des résultats d’estimation, mais est également à l’origine d’un biais dans le cadre de l’estimation par maximum de vraisemblance, en raison de l’opérateur logarithmique. Nous tâcherons de définir une approche de gradient stochastique à deux niveaux, variant à chaque itération non seulement l’ensemble d’observations considérées (souvent réduite à un singleton), mais également l’échantillonnage Monte-Carlo utilisé pour approximer l’espérance de probabilité de choix.</p>
+
+<h3 id="superviseur">Superviseur</h3>
+<p><a href="http://www.iro.umontreal.ca/~bastin/">Fabian Bastin</a></p>
 
 		</div>
 	</div>
 </div>
+
         <footer class="main-footer">
             <div class="wc-container">
                 <div class="column one">
                     <ul class="menu">
-    <li><a href="http://localhost:4000/blog/about">À propos</a></li>
-    <li><a href="http://localhost:4000/blog/IFT3150">IFT3150</a></li>
-    <li><a href="http://localhost:4000/blog/blog">Blog</a></li>
+    <li><a href="http://localhost:4000/about">À propos</a></li>
+    <li><a href="http://localhost:4000/IFT3150">IFT3150</a></li>
+    <li><a href="http://localhost:4000/blog">Blog</a></li>
 </ul>
-                    
+
                 </div>
                 <div class="column two">
                     
@@ -93,10 +93,10 @@
         <!-- jQuery -->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <!-- When no internet load JQuery from local -->
-        <script>window.jQuery || document.write('<script src="/blog/assets/js/jquery.min.js"><\/script>')</script>
+        <script>window.jQuery || document.write('<script src="/assets/js/jquery.min.js"><\/script>')</script>
         <!-- Site js -->
-        <script src="/blog/assets/js/all.js"></script>
+        <script src="/assets/js/all.js"></script>
         <!-- Google analytics  -->
         
-    </body>        
+    </body>
 </html>
