@@ -10,3 +10,7 @@ Ce blog a pour but de servir de support au projet d'informatique sous la supervi
 
 ### Contact
 [brilhana@iro.umontreal.ca](brilhana@iro.umontreal.ca)
+
+[GitHub](https://www.github.com/brilhana)
+
+[LinkedIn](https://www.linkedin.com/in/brilhana)
