@@ -1,0 +1,20 @@
+---
+layout: post
+title:  "Semaine 0"
+date:   2017-08-30 18:48:45
+description:
+categories:
+- blog
+---
+
+Voici une esquisse de l'échancier du projet.
+
+1. Introduction plus avancée à Julia et aux jeux de données.
+2. Estimation de modèles par les méthodes classiques.
+3. Implémentation et évaluation de l'algorithme du gradient stochastique.
+4. Partie exploratoire. Évaluation d'autres méthodes d'estimation possibles.
+
+Nous avions visés la semaine de lecture, soit la semaine du 23 octobre, pour être en mesure d'estimer des modèles sur des petits jeux de données.
+
+Date de début: 5 septembre.
+Date de fin et présentation: 18-22 décembre, à définir selon les disponibilités de Fabian Bastin et de Sylvie Hamel.
