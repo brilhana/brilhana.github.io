@@ -14,7 +14,8 @@ Voici une esquisse de l'échancier du projet.
 3. Implémentation et évaluation de l'algorithme du gradient stochastique.
 4. Partie exploratoire. Évaluation d'autres méthodes d'estimation possibles.
 
-Nous avions visés la semaine de lecture, soit la semaine du 23 octobre, pour être en mesure d'estimer des modèles sur des petits jeux de données.
+Nous avons visé la semaine de lecture, soit la semaine du 23 octobre, pour être en mesure d'estimer des modèles sur des petits jeux de données.
 
 Date de début: 5 septembre.
+
 Date de fin et présentation: 18-22 décembre, à définir selon les disponibilités de Fabian Bastin et de Sylvie Hamel.
