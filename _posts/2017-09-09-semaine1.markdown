@@ -1,0 +1,15 @@
+---
+layout: post
+title:  "Semaine 1"
+date:   2017-09-09 19:48:45
+description:
+categories:
+- blog
+---
+
+Fin de lecture des chapitres 1, 2, 3 et 6 de Train (2009) que j'avais débuté en début de semaine et qui m'ont aidé à mieux comprendre les choix discrets et comment les modéliser.
+
+J'ai l'intention de passer quelques heures sur l'exemple 18.2.9 de Greene (2011) tel que suggéré par Dr. Bastin la semaine prochaine et une méthode classique, soit [la méthode de régions de confiance](http://www.slashbin.net/nlp/notebooks/BasicTrustRegion.pdf) déjà implantée en Julia.
+
+Discrete Choice Modeling with Simulation, Kenneth E. Train, Cambridge University Press, 2007.
+Econometric Analysis, Willam H. Greene, Pearson, 2011.
