@@ -13,4 +13,4 @@ J'ai l'intention de passer quelques heures la semaine prochaine sur l'exemple 18
 
 Discrete Choice Methods with Simulation, Kenneth E. Train, Cambridge University Press, 2007.
 
-Econometric Analysis, Willam H. Greene, Pearson, 2011.
+Econometric Analysis, William H. Greene, Pearson, 2011.
