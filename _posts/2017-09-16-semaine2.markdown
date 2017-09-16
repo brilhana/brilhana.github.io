@@ -1,0 +1,12 @@
+---
+layout: post
+title:  "Semaine 2"
+date:   2017-09-16 10:01:45
+description:
+categories:
+- blog
+---
+
+N'ayant que peu de connaissances en optimisation non-linéaire et en économétrie, j'ai fait part à Dr. Bastin de mes difficultés à comprendre les détails de l'estimation de modèles de choix discrets et il m'a référé à une partie de sa thèse doctorat et le chapitre 8 de Train (2009). Lectures que je ferais au cours des prochains jours pour solidifer mes bases.
+
+J'ai également passé du temps à bien comprendre le premier jeu de données qui représente les choixs de transports entre deux villes australiennes.
