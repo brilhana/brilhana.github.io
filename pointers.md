@@ -20,4 +20,4 @@ Econometric Analysis, William H. Greene, Pearson, 2011.
 
 Trust Region Methods, Andrew R. Conn, Nicholas I. M. Gould et Philippe L. Toint, SIAM, 2000.
 
-Trust-Region Algorithms for Nonlinear Stochastic Programming and Mixed Logit Models Fabian Bastin, University of Namur, 2004.
+Trust-Region Algorithms for Nonlinear Stochastic Programming and Mixed Logit Models, Fabian Bastin, University of Namur, 2004.
