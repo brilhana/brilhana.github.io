@@ -1,0 +1,10 @@
+---
+layout: post
+title:  "Semaine 3"
+date:   2017-09-22 11:21:45
+description:
+categories:
+- blog
+---
+
+Cette semaine, j'ai effectué les lectures recommandées et pu estimer mon premier modèle avec une méthode classique, [celle de Newton-Raphson](https://github.com/brilhana/ift3150/blob/master/methods/Newton.jl). Les résultats semblent bons et ont été validés par Dr. Bastin.
