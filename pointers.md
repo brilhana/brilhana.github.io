@@ -14,10 +14,10 @@ permalink: /pointers/
 
 ### Références
 
-Discrete Choice Methods with Simulation, Kenneth E. Train, Cambridge University Press, 2009.
+Discrete Choice Methods with Simulation, Kenneth Train, Cambridge University Press, 2009.
 
-Econometric Analysis, William H. Greene, Pearson, 2011.
+Econometric Analysis, William Greene, Pearson, 2011.
 
-Trust Region Methods, Andrew R. Conn, Nicholas I. M. Gould et Philippe L. Toint, SIAM, 2000.
+Trust-Region Methods, Andrew Conn, Nicholas Gould et Philippe Toint, SIAM, 2000.
 
-Trust-Region Algorithms for Nonlinear Stochastic Programming and Mixed Logit Models, Fabian Bastin, University of Namur, 2004.
+Trust-Region Algorithms for Nonlinear Stochastic Programming and Mixed Logit Models, Fabian Bastin, Université de Namur, 2004.
