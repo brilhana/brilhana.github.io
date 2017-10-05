@@ -7,4 +7,4 @@ categories:
 - blog
 ---
 
-Implémentation et évaluation du modèle logit par la [méthode de régions de confiance](https://github.com/brilhana/ift3150/blob/master/methods/BasicTrustRegion.jl) sur le même jeu de données. Les résultats semblent bons et ont été validés par Dr. Bastin. Il a suggéré de généraliser la fonction qui permet construire le modèle à partir des données et d'expérimenter avec la méthode par gradient conjugué.
+Implémentation et évaluation du modèle logit par la [méthode de régions de confiance](https://github.com/brilhana/ift3150/blob/master/methods/BasicTrustRegion.jl) sur le même jeu de données. Les résultats semblent bons et ont été validés par Dr. Bastin. Il a suggéré de généraliser la fonction qui permet construire le modèle à partir des données et d'expérimenter avec la méthode de régions de confiance avec le gradient conjugué.

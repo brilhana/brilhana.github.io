@@ -1,0 +1,10 @@
+---
+layout: post
+title:  "Semaine 7"
+date:   2017-10-18 16:07:34
+description:
+categories:
+- blog
+---
+
+Dr. Bastin est au Maryland donc rien n'a été fait.

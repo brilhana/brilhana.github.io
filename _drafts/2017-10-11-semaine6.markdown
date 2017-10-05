@@ -1,0 +1,10 @@
+---
+layout: post
+title:  "Semaine 6"
+date:   2017-10-11 16:07:34
+description:
+categories:
+- blog
+---
+
+Semaine des intras donc rien n'a été fait. La semaine prochaine Dr. Bastin sera absent, nous tâcherons donc avancer via courriel ou Skype.
