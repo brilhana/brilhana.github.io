@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Semaine 6"
-date:   2017-10-11 07:07:34
+date:   2017-10-11 12:30:34
 description:
 categories:
 - blog
