@@ -7,6 +7,6 @@ categories:
 - blog
 ---
 
-Cette semaine j'ai implementé les méthodes de régions de confiance avec le [gradient conjugé](https://github.com/brilhana/ift3150/blob/master/methods/TrustRegionCG.jl) et le [gradient conjugué tronqué](https://github.com/brilhana/ift3150/blob/master/methods/TrustRegionTCG.jl) pour le calcul du pas puisque le pas de Cauchy était totalement inefficace. Nous avons donc pu améliorer la convergence de la méthode de façon à obtenir les résultats en 4 itérations contre 39 pour la méthode utilisant le pas de Cauchy et 6 pour la méthode de Newton vu durant la semaine 3.
+Cette semaine j'ai implementé les méthodes de régions de confiance avec le [gradient conjugé](https://github.com/brilhana/ift3150/blob/master/methods/TrustRegionCG.jl) et le [gradient conjugué tronqué](https://github.com/brilhana/ift3150/blob/master/methods/TrustRegionTCG.jl) pour le calcul du pas puisque le pas de Cauchy était totalement inefficace. Nous avons donc pu améliorer la convergence de la méthode de façon à obtenir les résultats en 4 itérations contre 39 pour la méthode utilisant le pas de Cauchy et 6 pour la méthode de Newton vue durant la semaine 3.
 
 J'ai également décomposé les fonctions servant à constuire le modèle dans le but de préparer le terrain à l'algorithme qui nous intéresse dans ce projet, la méthode du gradient stochastique.
