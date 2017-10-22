@@ -7,7 +7,7 @@ categories:
 - blog
 ---
 
-Voici une esquisse de l'échancier du projet:
+Voici une esquisse de l'échéancier du projet:
 
 1. Introduction plus avancée à Julia et aux jeux de données.
 2. Estimation de modèles par les méthodes classiques.

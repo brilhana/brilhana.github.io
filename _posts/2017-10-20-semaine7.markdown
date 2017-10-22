@@ -1,0 +1,10 @@
+---
+layout: post
+title:  "Semaine 7"
+date:   2017-10-20 12:30:34
+description:
+categories:
+- blog
+---
+
+Fin des intras et poursuite de la décomposition des fonctions pour construire le modèle en appliquant la dérivée automatique sur l'utilité et non les choix de l'individu.
