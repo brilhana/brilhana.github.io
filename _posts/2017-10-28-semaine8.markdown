@@ -1,0 +1,10 @@
+---
+layout: post
+title:  "Semaine 8"
+date:   2017-10-28 12:34:31
+description:
+categories:
+- blog
+---
+
+Poursuite de la décomposition des fonctions pour construire le modèle. Dr. Bastin m'a donné quelques indications supplémentaires que j'implémenterai au cours des prochains jours.
