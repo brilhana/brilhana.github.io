@@ -7,4 +7,4 @@ categories:
 - blog
 ---
 
-Fin de la décomposition des fonctions pour construire le modèle et tests pour savoir s'elles sont plus rapides que les fonctions originales.
+Fin de la décomposition des fonctions pour construire le modèle logit et tests pour savoir si elles sont plus rapides que les fonctions originales. J'ai également commencé l'implémentation du modèle mixed logit.
