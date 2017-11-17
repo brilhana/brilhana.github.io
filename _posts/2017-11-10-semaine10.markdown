@@ -7,4 +7,4 @@ categories:
 - blog
 ---
 
-Réglages de plusieurs bugs et imprécisions dans le code. J'ai poursuivi l'implémentation du modèle mixed logit et de l'algorithme BHHH pour approximer le Hessien d'une fonction.
+J'ai réglé plusieurs bugs et imprécisions dans le code. J'ai poursuivi l'implémentation du modèle mixed logit et de l'algorithme BHHH pour approximer le Hessien d'une fonction.

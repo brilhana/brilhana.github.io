@@ -1,0 +1,12 @@
+---
+layout: post
+title:  "Semaine 11"
+date:   2017-11-17 12:56:12
+description:
+categories:
+- blog
+---
+
+Cette semaine j'ai implementé les agorithmes BHHH (Berndt–Hall–Hall–Hausman), BFGS (Broyden-Fletcher-Goldfarb-Shanno) et SR-1 (Systematic Rank-One) pour approximer le Hessien, la matrice des dérivées partielles, de mon modèle.
+
+J'ai également complété l'implémentation du modèle mixed logit multinomial sur le jeu de données de Train. Je vais généraliser la lecture des données et la construction du modèle au cours des prochains jours.
