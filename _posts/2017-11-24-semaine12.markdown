@@ -7,4 +7,4 @@ categories:
 - blog
 ---
 
-Poursuite du raffinement du modèle mixed logit. J'ai également généraliser la lectur et le traitement du jeu de données.
+Poursuite du raffinement du modèle mixed logit. J'ai également généralisé la lecture et le traitement du jeu de données étant donné que le format proposé de Train est assez difficile à utiliser.
