@@ -1,0 +1,10 @@
+---
+layout: post
+title:  "Semaine 12"
+date:   2017-11-24 12:56:12
+description:
+categories:
+- blog
+---
+
+Poursuite du raffinement du modèle mixed logit. J'ai également généraliser la lectur et le traitement du jeu de données.
