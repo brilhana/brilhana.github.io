@@ -1,0 +1,10 @@
+---
+layout: post
+title:  "Semaine 13"
+date:   2017-12-01 12:16:12
+description:
+categories:
+- blog
+---
+
+Estimation du modèle mixed logit avec les méthodes classiques. J'ai commencé l'implémentation pour l'algorithme du gradient stochastique et j'ai également commencé à préparer mes diapositives pour la présentation de mercredi prochain, le 6 décembre.
