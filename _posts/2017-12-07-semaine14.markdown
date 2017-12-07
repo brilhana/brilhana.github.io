@@ -1,0 +1,10 @@
+---
+layout: post
+title:  "Semaine 14"
+date:   2017-12-07 12:16:12
+description:
+categories:
+- blog
+---
+
+J'ai préparé mes [diapositives](https://github.com/brilhana/ift3150/blob/master/slides.pdf) pour mon exposé de mercredi. J'ai fait quelques corrections à mon algorithme BHHH qui approxime la matrice hessienne et également raffiné ma descente de gradient stochastique ce qui devrait la faire converger beaucoup plus rapidement. Il ne manque qu'à déterminer le taux d'apprentissage puisque actuellement j'utilise la valeur fixe 0.001 souvent utilisé en machine learning.
