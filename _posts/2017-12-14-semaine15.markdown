@@ -1,0 +1,10 @@
+---
+layout: post
+title:  "Semaine 15"
+date:   2017-12-14 12:16:12
+description:
+categories:
+- blog
+---
+
+Semaine des examens finaux donc rien n'a été fait. Au niveau du code, il ne manque que l'automatisation du taux d'apprentissage avec le gradient conjugué tronqué, déjà partiellement implémenté. Je vise donc une remise pour le 22 décembre pour le code. Le rapport sera remis quelques jours plus tard.
