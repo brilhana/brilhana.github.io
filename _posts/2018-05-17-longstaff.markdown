@@ -44,6 +44,7 @@ function lsmc_am_put(S, K, r, σ, t, N, P)
             end
         end
     end
+
     return max(mean(V), K - S)
 end
 
@@ -52,4 +53,4 @@ lsmc_am_put(100, 90, 0.05, 0.3, 180/365, 1000, 10000)
 
 **Reference**
 
-Francis A. Longstaff and Eduardo S. Schwartz. *Valuing American Options by Simulation: A Simple Least-Squares Approach*. The Review of Financial Studies, Vol. 14, No. 1, 2001.
+Francis Longstaff and Eduardo Schwartz. *Valuing American Options by Simulation: A Simple Least-Squares Approach*. The Review of Financial Studies, Vol. 14, No. 1, 2001.
