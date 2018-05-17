@@ -14,7 +14,7 @@ harmony:
   basetheme: theme-base-01 # pre defined thmes are darken, blue-water, redish.
   author: # Author details
     name: Alexandre Brilhante
-    email: brilhana@iro.umontreal.ca
+    email: alexandre.brilhante@umontreal.ca
     url: http://brilhana.github.io
 
   # Google Analytics key, leave blank to ignore

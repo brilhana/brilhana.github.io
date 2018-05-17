@@ -26,16 +26,13 @@
 
 <ul>
 	<li>
-		<a href="http://localhost:4000/about">À propos</a><span>/</span>
-	</li>
-	<li>
-		<a href="http://localhost:4000/IFT3150">IFT3150</a><span>/</span>
+		<a href="http://localhost:4000/about">About</a><span>/</span>
 	</li>
 	<li>
 		<a href="http://localhost:4000/blog">Blog</a><span>/</span>
 	</li>
 	<li>
-		<a href="http://localhost:4000/pointers">Pointeurs</a><span>/</span>
+		<a href="http://localhost:4000/IFT3150">IFT3150</a><span>/</span>
 	</li>
 </ul>
 
@@ -47,8 +44,8 @@
   		
   			<div class="post">
     			<h3 class="post-title">
-			      <a href="http://localhost:4000/blog/2017/04/26/helloworld/">
-			        Hello World!
+			      <a href="http://localhost:4000/blog/2018/05/17/longstaff/">
+			        Least-Squares Monte Carlo
 			      </a>
     			</h3>
 
@@ -59,16 +56,280 @@
             </span> |
             
             <span class="post-date">
-            Apr 26, 2017
+            May 17, 2018
             </span>
           </p>
 
   				<p>
-	  				<p><code class="highlighter-rouge">Hello World!</code></p>
+	  				<p>This post presents a simple yet powerful approach for approximating the value of American options by simulation: the Longstaff–Schwartz least-squares Monte Carlo method. The key to this method is the use of least-squares to estimate the conditional expected payoff to the option holder from continuation. This makes this approach readily applicable in path-dependent and multifactor situations where traditional finite difference techniques cannot be used. From a practical perspective, it’s well suited to parallel computing which allows significant gains in computational speed and efficiency.</p>
+
 
   				</p>
   				<p>
-  					<a href="http://localhost:4000/blog/2017/04/26/helloworld/" title="Hello World!">
+  					<a href="http://localhost:4000/blog/2018/05/17/longstaff/" title="Least-Squares Monte Carlo">
+  						Read More
+					</a>
+  				</p>
+  			</div>
+  		
+  			<div class="post">
+    			<h3 class="post-title">
+			      <a href="http://localhost:4000/blog/2017/12/22/semaine16/">
+			        Semaine 16
+			      </a>
+    			</h3>
+
+          <p class="post-meta">
+            
+            <span class="categories">
+            blog
+            </span> |
+            
+            <span class="post-date">
+            Dec 22, 2017
+            </span>
+          </p>
+
+  				<p>
+	  				<p>Le code est terminé et mis à jour sur <a href="https://github.com/brilhana/ift3150">GitHub</a>. Il se peut qu’il y ai de très petites modifications au code, essentiellement pour faire des tests sur des tailles de mini-lots et des taux d’apprentissage différents à inclure dans le rapport.</p>
+
+
+  				</p>
+  				<p>
+  					<a href="http://localhost:4000/blog/2017/12/22/semaine16/" title="Semaine 16">
+  						Read More
+					</a>
+  				</p>
+  			</div>
+  		
+  			<div class="post">
+    			<h3 class="post-title">
+			      <a href="http://localhost:4000/blog/2017/12/14/semaine15/">
+			        Semaine 15
+			      </a>
+    			</h3>
+
+          <p class="post-meta">
+            
+            <span class="categories">
+            blog
+            </span> |
+            
+            <span class="post-date">
+            Dec 14, 2017
+            </span>
+          </p>
+
+  				<p>
+	  				<p>Semaine des examens finaux donc rien n’a été fait. Au niveau du code, il ne manque que l’automatisation du taux d’apprentissage avec le gradient conjugué tronqué, déjà partiellement implémenté. Je vise donc une remise pour le 22 décembre pour le code. Le rapport sera remis quelques jours plus tard.</p>
+
+  				</p>
+  				<p>
+  					<a href="http://localhost:4000/blog/2017/12/14/semaine15/" title="Semaine 15">
+  						Read More
+					</a>
+  				</p>
+  			</div>
+  		
+  			<div class="post">
+    			<h3 class="post-title">
+			      <a href="http://localhost:4000/blog/2017/12/07/semaine14/">
+			        Semaine 14
+			      </a>
+    			</h3>
+
+          <p class="post-meta">
+            
+            <span class="categories">
+            blog
+            </span> |
+            
+            <span class="post-date">
+            Dec 7, 2017
+            </span>
+          </p>
+
+  				<p>
+	  				<p>J’ai préparé mes <a href="https://github.com/brilhana/ift3150/blob/master/slides.pdf">diapositives</a> pour mon exposé de mercredi. J’ai fait quelques corrections à mon algorithme BHHH qui approxime la matrice hessienne et également raffiné ma descente de gradient stochastique ce qui devrait la faire converger beaucoup plus rapidement. Il ne manque qu’à déterminer le taux d’apprentissage puisque actuellement j’utilise la valeur fixe 0.001 souvent utilisé en machine learning.</p>
+
+  				</p>
+  				<p>
+  					<a href="http://localhost:4000/blog/2017/12/07/semaine14/" title="Semaine 14">
+  						Read More
+					</a>
+  				</p>
+  			</div>
+  		
+  			<div class="post">
+    			<h3 class="post-title">
+			      <a href="http://localhost:4000/blog/2017/12/01/semaine13/">
+			        Semaine 13
+			      </a>
+    			</h3>
+
+          <p class="post-meta">
+            
+            <span class="categories">
+            blog
+            </span> |
+            
+            <span class="post-date">
+            Dec 1, 2017
+            </span>
+          </p>
+
+  				<p>
+	  				<p>Estimation du modèle mixed logit avec les méthodes classiques. J’ai commencé l’implémentation pour l’algorithme du gradient stochastique et j’ai également commencé à préparer mes diapositives pour la présentation de mercredi prochain, le 6 décembre.</p>
+
+  				</p>
+  				<p>
+  					<a href="http://localhost:4000/blog/2017/12/01/semaine13/" title="Semaine 13">
+  						Read More
+					</a>
+  				</p>
+  			</div>
+  		
+  			<div class="post">
+    			<h3 class="post-title">
+			      <a href="http://localhost:4000/blog/2017/11/24/semaine12/">
+			        Semaine 12
+			      </a>
+    			</h3>
+
+          <p class="post-meta">
+            
+            <span class="categories">
+            blog
+            </span> |
+            
+            <span class="post-date">
+            Nov 24, 2017
+            </span>
+          </p>
+
+  				<p>
+	  				<p>Poursuite du raffinement du modèle mixed logit. J’ai également généralisé la lecture et le traitement du jeu de données étant donné que le format proposé de Train est assez difficile à utiliser.</p>
+
+  				</p>
+  				<p>
+  					<a href="http://localhost:4000/blog/2017/11/24/semaine12/" title="Semaine 12">
+  						Read More
+					</a>
+  				</p>
+  			</div>
+  		
+  			<div class="post">
+    			<h3 class="post-title">
+			      <a href="http://localhost:4000/blog/2017/11/17/semaine11/">
+			        Semaine 11
+			      </a>
+    			</h3>
+
+          <p class="post-meta">
+            
+            <span class="categories">
+            blog
+            </span> |
+            
+            <span class="post-date">
+            Nov 17, 2017
+            </span>
+          </p>
+
+  				<p>
+	  				<p>Cette semaine j’ai implementé les agorithmes BHHH (Berndt–Hall–Hall–Hausman), BFGS (Broyden-Fletcher-Goldfarb-Shanno) et SR-1 (Systematic Rank-One) pour approximer le Hessien, la matrice des dérivées partielles, de mon modèle.</p>
+
+
+  				</p>
+  				<p>
+  					<a href="http://localhost:4000/blog/2017/11/17/semaine11/" title="Semaine 11">
+  						Read More
+					</a>
+  				</p>
+  			</div>
+  		
+  			<div class="post">
+    			<h3 class="post-title">
+			      <a href="http://localhost:4000/blog/2017/11/10/semaine10/">
+			        Semaine 10
+			      </a>
+    			</h3>
+
+          <p class="post-meta">
+            
+            <span class="categories">
+            blog
+            </span> |
+            
+            <span class="post-date">
+            Nov 10, 2017
+            </span>
+          </p>
+
+  				<p>
+	  				<p>J’ai réglé plusieurs bugs et imprécisions dans le code. J’ai poursuivi l’implémentation du modèle mixed logit et de l’algorithme BHHH pour approximer le Hessien d’une fonction.</p>
+
+  				</p>
+  				<p>
+  					<a href="http://localhost:4000/blog/2017/11/10/semaine10/" title="Semaine 10">
+  						Read More
+					</a>
+  				</p>
+  			</div>
+  		
+  			<div class="post">
+    			<h3 class="post-title">
+			      <a href="http://localhost:4000/blog/2017/11/03/semaine9/">
+			        Semaine 9
+			      </a>
+    			</h3>
+
+          <p class="post-meta">
+            
+            <span class="categories">
+            blog
+            </span> |
+            
+            <span class="post-date">
+            Nov 3, 2017
+            </span>
+          </p>
+
+  				<p>
+	  				<p>Fin de la décomposition des fonctions pour construire le modèle logit et tests pour savoir si elles sont plus rapides que les fonctions originales. J’ai également commencé l’implémentation du modèle mixed logit.</p>
+
+  				</p>
+  				<p>
+  					<a href="http://localhost:4000/blog/2017/11/03/semaine9/" title="Semaine 9">
+  						Read More
+					</a>
+  				</p>
+  			</div>
+  		
+  			<div class="post">
+    			<h3 class="post-title">
+			      <a href="http://localhost:4000/blog/2017/10/28/semaine8/">
+			        Semaine 8
+			      </a>
+    			</h3>
+
+          <p class="post-meta">
+            
+            <span class="categories">
+            blog
+            </span> |
+            
+            <span class="post-date">
+            Oct 28, 2017
+            </span>
+          </p>
+
+  				<p>
+	  				<p>Poursuite de la décomposition des fonctions pour construire le modèle. Dr. Bastin m’a donné quelques indications supplémentaires que j’implémenterai au cours des prochains jours.</p>
+
+  				</p>
+  				<p>
+  					<a href="http://localhost:4000/blog/2017/10/28/semaine8/" title="Semaine 8">
   						Read More
 					</a>
   				</p>
@@ -79,15 +340,14 @@
 		<div class="column-full"><a href="http://localhost:4000/blog">Blog</a></div>
 	</div>
 </div>
-
         <footer class="main-footer">
             <div class="wc-container">
                 <div class="column one">
                     <ul class="menu">
-    <li><a href="http://localhost:4000/about">À propos</a></li>
-    <li><a href="http://localhost:4000/IFT3150">IFT3150</a></li>
+    <li><a href="http://localhost:4000/about">About</a></li>
     <li><a href="http://localhost:4000/blog">Blog</a></li>
-    <li><a href="https:www.github.com/brilhana">GitHub</a></li>
+    <li><a href="http://localhost:4000/IFT3150">IFT3150</a></li>
+    <li><a href="https://www.github.com/brilhana">GitHub</a></li>
 </ul>
 
                 </div>

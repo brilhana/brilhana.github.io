@@ -1,14 +1,16 @@
 ---
 layout: page
-title: À propos
+title: About
 permalink: /about/
 ---
 
-Diplômé de l'École des sciences de la gestion de l'Université du Québec à Montréal, je suis maintenant étudiant à la majeure en informatique et la mineure en sciences économiques à l'Université de Montréal.
+I have recently graduated from Université de Montréal where I studied computer science with strong emphasis on operations research. I have previously graduated from École des sciences de la gestion (ESG UQAM) where I studied finance.
 
-Ce blog a pour but de servir de support au projet d'informatique sous la supervision de Prof. Dr. Fabian Bastin à l'automne 2017.
+This blog was first used to document the progress of my research project ([IFT3150](http://brilhana.github.io/IFT3150/)) under the supervision of Prof. Dr. Fabian Bastin in 2017-2018.
 
 ### Contact
-brilhana (AT) iro.umontreal.ca
+alexandre (DOT) brilhante (AT) umontreal.ca
+
+[CV](http://brilhana.github.io/assets/AlexandreBrilhanteCV.pdf)
 
 [GitHub](https://www.github.com/brilhana)
