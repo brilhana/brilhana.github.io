@@ -5,8 +5,8 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 17 May 2018 10:04:53 -0400</pubDate>
-    <lastBuildDate>Thu, 17 May 2018 10:04:53 -0400</lastBuildDate>
+    <pubDate>Thu, 17 May 2018 18:48:38 -0400</pubDate>
+    <lastBuildDate>Thu, 17 May 2018 18:48:38 -0400</lastBuildDate>
     <generator>Jekyll v3.7.3</generator>
     
       <item>
@@ -47,6 +47,7 @@
             &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mean&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;V&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;K&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;S&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
 
@@ -55,7 +56,7 @@
 
 &lt;p&gt;&lt;strong&gt;Reference&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;Francis A. Longstaff and Eduardo S. Schwartz. &lt;em&gt;Valuing American Options by Simulation: A Simple Least-Squares Approach&lt;/em&gt;. The Review of Financial Studies, Vol. 14, No. 1, 2001.&lt;/p&gt;
+&lt;p&gt;Francis Longstaff and Eduardo Schwartz. &lt;em&gt;Valuing American Options by Simulation: A Simple Least-Squares Approach&lt;/em&gt;. The Review of Financial Studies, Vol. 14, No. 1, 2001.&lt;/p&gt;
 </description>
         <pubDate>Thu, 17 May 2018 06:01:12 -0400</pubDate>
         <link>http://localhost:4000/blog/2018/05/17/longstaff/</link>
