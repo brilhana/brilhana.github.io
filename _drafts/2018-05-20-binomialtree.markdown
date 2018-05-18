@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Binomial Tree"
-date:   2018-05-18 10:01:12
+date:   2018-05-20 10:01:12
 description:
 categories:
 - blog

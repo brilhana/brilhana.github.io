@@ -18,7 +18,7 @@ harmony:
     url: http://brilhana.github.io
 
   # Google Analytics key, leave blank to ignore
-  google_analytics_key:
+  google_analytics_key: UA-119500874-1
 
   # Profile links, leave blank to ignore
   social:
@@ -41,6 +41,7 @@ exclude:
   - .gitignore
   - .sass-cache
   - Gemfile.lock
+  - .DS_Store
 
 # Sass conversion configs
 sass:

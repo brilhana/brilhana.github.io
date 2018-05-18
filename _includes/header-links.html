@@ -1,5 +1,7 @@
 <link rel="shortcut icon" href="{{ site.baseurl }}assets/favicon.ico">
 
+<head>{% if site.google_analytics and jekyll.environment == 'production' %} {% include analytics.html %} {% endif %}</head>
+
 <ul>
 	<li>
 		<a href="{{ '/about' | prepend: site.baseurl | prepend: site.url }}">About</a><span>/</span>
