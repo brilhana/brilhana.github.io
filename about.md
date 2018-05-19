@@ -4,12 +4,10 @@ title: About
 permalink: /about/
 ---
 
-I have recently graduated from Université de Montréal where I studied computer science with a strong emphasis on operations research. I have previously graduated from École des sciences de la gestion (ESG UQAM) where I studied finance.
-
-This blog was first used to document the progress of my research project ([IFT3150](http://brilhana.github.io/IFT3150/)) under the supervision of Prof. Dr. Fabian Bastin in 2017-2018.
+This blog was first used to document the progress of my research project ([IFT3150](http://brilhana.github.io/IFT3150/)) where I researched nonlinear stochastic programming methods for maximum likelihood estimation of large-scale multinomial mixed logit models under the supervision of Prof. Dr. Fabian Bastin. I will use it from now on to cover a wide range of topics in quantitative finance.
 
 ### Contact
-alexandre (DOT) brilhante (AT) gmail (DOT) com
+`alexandre DOT brilhante AT gmail DOT com`
 
 [CV](http://brilhana.github.io/assets/AlexandreBrilhanteCV.pdf)
 
