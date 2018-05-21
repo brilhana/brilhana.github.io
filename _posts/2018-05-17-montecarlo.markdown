@@ -2,7 +2,7 @@
 layout: post
 title:  "Least-Squares Monte Carlo"
 date:   2018-05-17 10:01:12
-description:
+description: Longstaff–Schwartz least-squares Monte Carlo method.
 categories:
 - blog
 ---
@@ -11,7 +11,7 @@ This post presents a simple yet powerful approach for approximating the value of
 
 To understand the intuition behind this approach, recall that at any exercise time, the holder of an American option optimally compares the payoff from immediate exercise with the expected payoff from continuation and then exercises if the immediate payoff is higher. Thus, the optimal exercise strategy is fundamentally determined by the conditional expectation of the payoff from continuing to keep the option alive. The key insight underlying our approach is that this conditional expectation can be estimated from the cross-sectional information in the simulation by using least-squares. The fitted value from this regression provides a pathwise approximation to the optimal stopping rule that maximizes the value of the American option. With this specification, American options can then be valued accurately by simulation.
 
-Here's a simple implementation of the method in Julia.
+Here's a simple implementation of the method in `Julia`.
 
 ```julia
 function lsmc_am_put(S, K, r, σ, t, N, P)

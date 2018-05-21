@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Binomial Tree</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
+        <link rel="canonical"
+        href="http://localhost:4000/blog/2018/05/21/binomialtree/">
+
+        <!-- Harmony styles -->
+        <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+
+        <!-- Modernizr js -->
+        <script async src="/assets/js/modernizr.js"></script>
+
+    </head>
+    <body class="theme-base-01">
+        <header class="main-header">
+            <div class="wc-container">
+                <h1><a href="/">Alexandre Brilhante</a></h1>
+                <h2></h2>
+                <link rel="shortcut icon" href="assets/favicon.ico">
+
+<head></head>
+
+<ul>
+	<li>
+		<a href="http://localhost:4000/about">About</a><span>/</span>
+	</li>
+	<li>
+		<a href="http://localhost:4000/blog">Blog</a><span>/</span>
+	</li>
+	<li>
+		<a href="http://localhost:4000/IFT3150">IFT3150</a><span>/</span>
+	</li>
+</ul>
+            </div>
+        </header>
+        <div class="page-content wc-container">
+
+	<div class="post">
+		<h1>Binomial Tree</h1>
+		<p class="post-meta">
+			
+      <span class="categories">
+      blog
+      </span> |
+	    
+	    <span class="post-date">
+    	May 21, 2018
+	    </span>
+		</p>
+		<div class="post">
+			<p>In this post I will present another simple option pricing model: the Cox-Ross-Rubinstein model, also known as the binomial tree model, which is a variation of the original Black-Scholes model that I will cover in my next post. This method is popular because it considers the underlying instrument over a period of time instead of at just one point in time. It does this by using a lattice-based tree, which takes into account expected changes in various parameters over the option’s life, thereby producing a more accurate estimate of option prices than created by models that consider only one point in time. The Cox-Ross-Rubinstein model uses a risk-neutral valuation method. Its underlying principal affirms that when determining option prices, it can be assumed that the world is risk neutral and that all individuals (and investors) are indifferent to risk.</p>
+
+<p>The Cox-Ross-Rubinstein model is a two-state model in that it assumes the underlying price can only either increase or decrease with time until expiration. Valuation begins at each of the final nodes (at expiration) and iterations are performed backwards through the binomial tree up to the first node (date of valuation). In very basic terms, it’s a bottom-up approach and the model involves three steps:</p>
+<ol>
+  <li>Create the binomial price tree.</li>
+  <li>Compute the option value at each final node.</li>
+  <li>Compute the option value at each preceding node.</li>
+</ol>
+
+<p>Here’s a simple implementation of the method in <code class="highlighter-rouge">Julia</code>.</p>
+
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function</span><span class="nf"> crr_am_put</span><span class="x">(</span><span class="n">S</span><span class="x">,</span> <span class="n">K</span><span class="x">,</span> <span class="n">r</span><span class="x">,</span> <span class="n">σ</span><span class="x">,</span> <span class="n">t</span><span class="x">,</span> <span class="n">N</span><span class="x">)</span>
+    <span class="n">Δt</span> <span class="o">=</span> <span class="n">t</span> <span class="o">/</span> <span class="n">N</span>
+    <span class="n">U</span> <span class="o">=</span> <span class="n">exp</span><span class="x">(</span><span class="n">σ</span> <span class="o">*</span> <span class="n">√Δt</span><span class="x">)</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">U</span>
+    <span class="n">R</span> <span class="o">=</span> <span class="n">exp</span><span class="x">(</span><span class="n">r</span> <span class="o">*</span> <span class="n">Δt</span><span class="x">)</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="x">(</span><span class="n">R</span> <span class="o">-</span> <span class="n">D</span><span class="x">)</span> <span class="o">/</span> <span class="x">(</span><span class="n">U</span> <span class="o">-</span> <span class="n">D</span><span class="x">)</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="x">(</span><span class="n">U</span> <span class="o">-</span> <span class="n">R</span><span class="x">)</span> <span class="o">/</span> <span class="x">(</span><span class="n">U</span> <span class="o">-</span> <span class="n">D</span><span class="x">)</span>
+    <span class="n">Z</span> <span class="o">=</span> <span class="x">[</span><span class="n">max</span><span class="x">(</span><span class="mi">0</span><span class="x">,</span> <span class="n">K</span> <span class="o">-</span> <span class="n">S</span> <span class="o">*</span> <span class="n">exp</span><span class="x">((</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">-</span> <span class="n">N</span><span class="x">)</span> <span class="o">*</span> <span class="n">σ</span> <span class="o">*</span> <span class="n">√Δt</span><span class="x">))</span> <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="x">:</span><span class="n">N</span><span class="x">]</span>
+    
+    <span class="k">for</span> <span class="n">n</span> <span class="o">=</span> <span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="x">:</span><span class="o">-</span><span class="mi">1</span><span class="x">:</span><span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="x">:</span><span class="n">n</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">K</span> <span class="o">-</span> <span class="n">S</span> <span class="o">*</span> <span class="n">exp</span><span class="x">((</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">-</span> <span class="n">n</span><span class="x">)</span> <span class="o">*</span> <span class="n">σ</span> <span class="o">*</span> <span class="n">√Δt</span><span class="x">)</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="x">(</span><span class="n">q</span> <span class="o">*</span> <span class="n">Z</span><span class="x">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="x">]</span> <span class="o">+</span> <span class="n">p</span> <span class="o">*</span> <span class="n">Z</span><span class="x">[</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="x">])</span> <span class="o">/</span> <span class="n">R</span>
+            <span class="n">Z</span><span class="x">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="x">]</span> <span class="o">=</span> <span class="n">max</span><span class="x">(</span><span class="n">x</span><span class="x">,</span> <span class="n">y</span><span class="x">)</span>
+        <span class="k">end</span>
+    <span class="k">end</span>
+
+    <span class="k">return</span> <span class="n">Z</span><span class="x">[</span><span class="mi">1</span><span class="x">]</span>
+<span class="k">end</span>
+
+<span class="n">crr_am_put</span><span class="x">(</span><span class="mi">100</span><span class="x">,</span> <span class="mi">90</span><span class="x">,</span> <span class="mf">0.05</span><span class="x">,</span> <span class="mf">0.3</span><span class="x">,</span> <span class="mi">180</span><span class="o">/</span><span class="mi">365</span><span class="x">,</span> <span class="mi">1000</span><span class="x">)</span>
+</code></pre></div></div>
+
+<p>Alternatively, in a more esoteric programming language: <code class="highlighter-rouge">F#</code>.</p>
+
+<div class="language-fsharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="n">crr_am_put</span> <span class="n">s</span> <span class="n">k</span> <span class="n">r</span> <span class="n">o</span> <span class="n">t</span> <span class="n">n</span> <span class="p">=</span>
+    <span class="k">let</span> <span class="n">deltaT</span> <span class="p">=</span> <span class="n">t</span><span class="o">/</span><span class="kt">float</span> <span class="n">n</span>
+    <span class="k">let</span> <span class="n">up</span> <span class="p">=</span> <span class="n">exp</span><span class="p">(</span><span class="n">o</span><span class="p">*</span><span class="n">sqrt</span><span class="p">(</span><span class="n">deltaT</span><span class="o">))</span>
+    <span class="k">let</span> <span class="n">p0</span> <span class="p">=</span> <span class="p">(</span><span class="n">up</span><span class="p">*</span><span class="n">exp</span><span class="o">(-</span><span class="n">r</span><span class="p">*</span><span class="n">deltaT</span><span class="o">))*</span><span class="n">up</span><span class="o">/((</span><span class="n">up</span><span class="p">*</span><span class="n">up</span><span class="o">)-</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">let</span> <span class="n">p1</span> <span class="p">=</span> <span class="n">exp</span><span class="o">(-</span><span class="n">r</span><span class="p">*</span><span class="n">deltaT</span><span class="o">)-</span><span class="n">p0</span>
+    <span class="k">let</span> <span class="n">value</span> <span class="p">=</span> <span class="nn">Array</span><span class="p">.</span><span class="n">zeroCreate</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="p">=</span> <span class="mi">0</span> <span class="k">to</span> <span class="n">n</span> <span class="k">do</span>
+      <span class="n">value</span><span class="o">.[</span><span class="n">i</span><span class="p">]</span> <span class="p">&lt;-</span> <span class="p">(</span><span class="n">k</span><span class="p">-</span><span class="n">s</span><span class="p">)</span> <span class="p">*</span> <span class="p">(</span><span class="n">up</span><span class="o">**(</span><span class="kt">float</span><span class="p">(</span><span class="mi">2</span><span class="p">*</span><span class="n">i</span><span class="p">-</span><span class="n">n</span><span class="o">)))</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">value</span><span class="o">.[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="k">then</span> <span class="n">value</span><span class="o">.[</span><span class="n">i</span><span class="p">]</span> <span class="p">&lt;-</span> <span class="mi">0</span><span class="p">.</span><span class="mi">0</span>
+    
+    <span class="k">for</span> <span class="n">j</span> <span class="p">=</span> <span class="n">n</span> <span class="p">-</span> <span class="mi">1</span> <span class="k">downto</span> <span class="mi">0</span> <span class="k">do</span>
+      <span class="k">for</span> <span class="n">i</span> <span class="p">=</span> <span class="mi">0</span> <span class="k">to</span> <span class="n">j</span> <span class="k">do</span>
+        <span class="n">value</span><span class="o">.[</span><span class="n">i</span><span class="p">]</span> <span class="p">&lt;-</span> <span class="n">p0</span><span class="p">*</span><span class="n">value</span><span class="o">.[</span><span class="n">i</span><span class="o">]+</span><span class="n">p1</span><span class="p">*</span><span class="n">value</span><span class="o">.[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">let</span> <span class="n">exercise</span> <span class="p">=</span> <span class="n">k</span><span class="p">-</span><span class="n">s</span><span class="o">*(</span><span class="n">up</span><span class="o">**</span><span class="kt">float</span><span class="p">(</span><span class="mi">2</span><span class="p">*</span><span class="n">i</span><span class="p">-</span><span class="n">j</span><span class="o">))</span>
+        <span class="k">if</span> <span class="n">value</span><span class="o">.[</span><span class="n">i</span><span class="p">]</span> <span class="p">&lt;</span> <span class="n">exercise</span> <span class="k">then</span> <span class="n">value</span><span class="o">.[</span><span class="n">i</span><span class="p">]</span> <span class="p">&lt;-</span> <span class="n">exercise</span>
+    
+    <span class="n">value</span><span class="o">.[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">crr_am_put</span> <span class="mi">100</span><span class="p">.</span><span class="mi">0</span> <span class="mi">90</span><span class="p">.</span><span class="mi">0</span> <span class="mi">0</span><span class="p">.</span><span class="mi">05</span> <span class="mi">0</span><span class="p">.</span><span class="mi">3</span> <span class="mi">180</span><span class="p">.</span><span class="mi">0</span><span class="o">/</span><span class="mi">365</span><span class="p">.</span><span class="mi">0</span> <span class="mi">1000</span>
+</code></pre></div></div>
+
+<p>Next up, we’ll cover the most-known pricing model: Black-Scholes.</p>
+
+<p><strong>Reference</strong></p>
+
+<p>John Cox, Stephen Ross and Mark Rubinstein. <em>Option Pricing: A Simplified Approach</em>. Journal of Financial Economics 7, 1979.</p>
+
+		</div>
+	</div>
+
+
+	
+	<div class="related">
+		<h4>Related Posts</h4>
+		<ul class="posts">
+		    
+		    <li>
+			  <span>17 May 2018 &raquo;</span>
+			  <a href="http://localhost:4000/blog/2018/05/17/montecarlo/">Least-Squares Monte Carlo</a>
+		    </li>
+		    
+		    <li>
+			  <span>22 Dec 2017 &raquo;</span>
+			  <a href="http://localhost:4000/blog/2017/12/22/semaine16/">Semaine 16</a>
+		    </li>
+		    
+		    <li>
+			  <span>14 Dec 2017 &raquo;</span>
+			  <a href="http://localhost:4000/blog/2017/12/14/semaine15/">Semaine 15</a>
+		    </li>
+		    
+		</ul>
+	</div>
+	
+
+	<div class="post-footer">
+		<div class="column-1">
+			
+				<a href="http://localhost:4000/blog/2018/05/17/montecarlo/"><< Older</a>
+			
+		</div>
+		<div class="column-2"><a href="http://localhost:4000/ ">Home</a></div>
+		<div class="column-3">
+			
+				<span>Newer >></span>
+			
+		</div>
+	</div>
+</div>
+
+        <footer class="main-footer">
+            <div class="wc-container">
+                <div class="column one">
+                    <ul class="menu">
+    <li><a href="http://localhost:4000/about">About</a></li>
+    <li><a href="http://localhost:4000/blog">Blog</a></li>
+    <li><a href="http://localhost:4000/IFT3150">IFT3150</a></li>
+    <li><a href="https://www.github.com/brilhana">GitHub</a></li>
+</ul>
+
+                </div>
+                <div class="column two">
+                    
+                </div>
+            </div>
+            <p class="wc-container disclaimer">
+                Powered by <a href="http://jekyllrb.com" target="_blank">Jekyll</a>
+
+            </p>
+        </footer>
+        <script type="text/javascript">
+          /* To avoid render blocking css */
+          var cb = function() {
+            var l = document.createElement('link'); l.rel = 'stylesheet';
+            l.href = 'http://fonts.googleapis.com/css?family=Ubuntu+Mono&subset=latin';
+            var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
+          };
+          var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+              webkitRequestAnimationFrame || msRequestAnimationFrame;
+          if (raf) raf(cb);
+          else window.addEventListener('load', cb);
+        </script>
+        <!-- jQuery -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <!-- When no internet load JQuery from local -->
+        <script>window.jQuery || document.write('<script src="/assets/js/jquery.min.js"><\/script>')</script>
+        <!-- Site js -->
+        <script src="/assets/js/all.js"></script>
+        <!-- Google analytics  -->
+        
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-119500874-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+    </body>
+</html>
