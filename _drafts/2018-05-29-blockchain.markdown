@@ -10,9 +10,7 @@ categories:
 ```julia
 using SHA
 
-"""
-An individual block structure.
-"""
+# An individual block structure.
 struct Block
     index::Int
     timestamp::DateTime
@@ -29,9 +27,7 @@ struct Block
     end
 end
 
-"""
-Add another block to the chain.
-"""
+# Add another block to the chain.
 function next_block(tail_block::Block)
     new_index = tail_block.index + 1
     return Block(new_index, Dates.now(), string("This is block #", new_index), tail_block.hash)
@@ -40,18 +36,18 @@ end
 # Create the special first block of the blockchain.
 Blockchain = [Block(0, Dates.now(), "Genesis Block", "0")]
 
-println("Genesis Block : 1")
+println("Genesis Block: 1")
 println("Hash: ", Blockchain[1].hash)
 
 # Size of the blockchain.
 blockchain_limit = 10
 
-# To make addition of blocks to the blockchain, a proof of work task is required.
+# To make addition of blocks to the blockchain, a proof of work task is required. We'll keep it simple.
 for tail = 1:blockchain_limit
-    # Link the new block to the chain
+    # Link the new block to the chain.
     append!(Blockchain, [next_block(blockchain[tail])])
-    # The details of the block
-    println("Block : $(tail+1)")
-    println("Hash :", blockchain[tail+1].hash)
+    # The details of the block.
+    println("Block: $(tail+1)")
+    println("Hash: $(blockchain[tail+1].hash)")
 end
 ```
