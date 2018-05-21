@@ -2,7 +2,7 @@
 layout: post
 title:  "Binomial Tree"
 date:   2018-05-21 10:01:12
-description: Cox-Ross-Rubinstein binomial tree model.
+description: "Cox-Ross-Rubinstein binomial tree model."
 categories:
 - blog
 ---

@@ -2,7 +2,7 @@
 layout: post
 title:  "Least-Squares Monte Carlo"
 date:   2018-05-17 10:01:12
-description: Longstaff–Schwartz least-squares Monte Carlo method.
+description: "Longstaff–Schwartz least-squares Monte Carlo method."
 categories:
 - blog
 ---
