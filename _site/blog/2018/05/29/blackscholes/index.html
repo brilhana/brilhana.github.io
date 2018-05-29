@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Black-Scholes</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
+        <link rel="canonical"
+        href="http://localhost:4000/blog/2018/05/29/blackscholes/">
+
+        <!-- Harmony styles -->
+        <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+
+        <!-- Modernizr js -->
+        <script async src="/assets/js/modernizr.js"></script>
+
+    </head>
+    <body class="theme-base-01">
+        <header class="main-header">
+            <div class="wc-container">
+                <h1><a href="/">Alexandre Brilhante</a></h1>
+                <h2></h2>
+                <link rel="shortcut icon" href="assets/favicon.ico">
+
+<head></head>
+
+<ul>
+	<li>
+		<a href="http://localhost:4000/about">About</a><span>/</span>
+	</li>
+	<li>
+		<a href="http://localhost:4000/blog">Blog</a><span>/</span>
+	</li>
+	<li>
+		<a href="http://localhost:4000/IFT3150">IFT3150</a><span>/</span>
+	</li>
+</ul>
+            </div>
+        </header>
+        <div class="page-content wc-container">
+
+	<div class="post">
+		<h1>Black-Scholes</h1>
+		<p class="post-meta">
+			
+      <span class="categories">
+      blog
+      </span> |
+	    
+	    <span class="post-date">
+    	May 29, 2018
+	    </span>
+		</p>
+		<div class="post">
+			<p>In this last post of a serie about options pricing models, we’ll discuss the Black-Scholes model. Black-Scholes, named after its creators Fischer Black and Myron Scholes, was the first widely used model for option pricing. It’s used to calculate the theoretical value of European-style options using current stock prices, expected dividends, the option’s strike price, expected interest rates, time to expiration and expected volatility.</p>
+
+<p>The key financial insight behind the model is that one can perfectly hedge the option by buying and selling the underlying asset in just the right way and consequently eliminate risk. This hedge, in turn, implies that there is only one right price for the option, as returned by the Black–Scholes formula. The value of a call option for a non-dividend-paying underlying stock in terms of the Black–Scholes parameters is:
+<img src="/assets/bs.png" alt="Black-Scholes" /></p>
+
+<p>Where:</p>
+<ul>
+  <li><code class="highlighter-rouge">N</code> is the cumulative distribution function of the standard normal distribution.</li>
+  <li><code class="highlighter-rouge">T-t</code> is the time to maturity, expressed in years.</li>
+  <li><code class="highlighter-rouge">S</code> is the spot price of the underlying asset.</li>
+  <li><code class="highlighter-rouge">K</code> is the strike price.</li>
+  <li><code class="highlighter-rouge">r</code> is the risk free rate, expressed in terms of continuous compounding.</li>
+  <li><code class="highlighter-rouge">sigma</code>  is the volatility of returns of the underlying asset.</li>
+</ul>
+
+<p>Under certain assumptions on the asset and market:</p>
+<ul>
+  <li>The option is European and can only be exercised at expiration.</li>
+  <li>No dividends are paid out during the life of the option.</li>
+  <li>Markets are efficient.</li>
+  <li>There are no transaction costs in buying the option.</li>
+  <li>The risk-free rate and volatility of the underlying are known and constant.</li>
+  <li>The returns on the underlying are normally distributed.</li>
+</ul>
+
+<p>The model is essentially divided into two parts: the first part multiplies the price by the change in the call premium in relation to a change in the underlying price. This part of the formula shows the expected benefit of purchasing the underlying outright. The second part provides the current value of paying the exercise price upon expiration, remember the Black-Scholes model applies to European options that can be exercised only on expiration day. The value of the option is calculated by taking the difference between the two parts, as shown in the equation.</p>
+
+<p>Here’s a simple implementation in <code class="highlighter-rouge">F#</code>.</p>
+
+<div class="language-fsharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">type</span> <span class="nc">Style</span> <span class="p">=</span> <span class="nc">Call</span> <span class="p">|</span> <span class="nc">Put</span>
+
+<span class="k">let</span> <span class="n">cnd</span> <span class="n">x</span> <span class="p">=</span>
+    <span class="k">let</span> <span class="n">pow</span> <span class="n">x</span> <span class="n">n</span> <span class="p">=</span> <span class="n">exp</span><span class="p">(</span><span class="n">n</span><span class="p">*</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="o">))</span>
+    <span class="k">let</span> <span class="n">a1</span> <span class="p">=</span> <span class="mi">0</span><span class="p">.</span><span class="mi">31938153</span>
+    <span class="k">let</span> <span class="n">a2</span> <span class="p">=</span> <span class="p">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">356563782</span>
+    <span class="k">let</span> <span class="n">a3</span> <span class="p">=</span> <span class="mi">1</span><span class="p">.</span><span class="mi">781477937</span>
+    <span class="k">let</span> <span class="n">a4</span> <span class="p">=</span> <span class="p">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">821255978</span>
+    <span class="k">let</span> <span class="n">a5</span> <span class="p">=</span> <span class="mi">1</span><span class="p">.</span><span class="mi">330274429</span>
+    <span class="k">let</span> <span class="n">pi</span> <span class="p">=</span> <span class="mi">4</span><span class="p">.</span><span class="mi">0</span><span class="p">*</span><span class="n">atan</span> <span class="mi">1</span><span class="p">.</span><span class="mi">0</span>
+    <span class="k">let</span> <span class="n">l</span> <span class="p">=</span> <span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">let</span> <span class="n">k</span> <span class="p">=</span> <span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="o">/(</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="o">+</span><span class="mi">0</span><span class="p">.</span><span class="mi">2316419</span><span class="p">*</span><span class="n">l</span><span class="p">)</span>
+    <span class="k">let</span> <span class="n">w</span> <span class="p">=</span> <span class="n">ref</span><span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="p">*</span><span class="n">pi</span><span class="o">)*</span>
+            <span class="n">exp</span><span class="o">(-</span><span class="n">l</span><span class="p">*</span><span class="n">l</span><span class="o">/</span><span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="o">)*(</span><span class="n">a1</span><span class="p">*</span><span class="n">k</span><span class="o">+</span><span class="n">a2</span><span class="p">*</span><span class="n">k</span><span class="p">*</span><span class="n">k</span><span class="o">+</span><span class="n">a3</span><span class="o">*(</span><span class="n">pow</span> <span class="n">k</span> <span class="mi">3</span><span class="p">.</span><span class="mi">0</span><span class="o">)+</span>
+            <span class="n">a4</span><span class="o">*(</span><span class="n">pow</span> <span class="n">k</span> <span class="mi">4</span><span class="p">.</span><span class="mi">0</span><span class="o">)+</span><span class="n">a5</span><span class="o">*(</span><span class="n">pow</span> <span class="n">k</span> <span class="mi">5</span><span class="p">.</span><span class="mi">0</span><span class="o">)))</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="p">&lt;</span> <span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="k">then</span> <span class="n">w</span> <span class="p">:=</span> <span class="mi">1</span><span class="p">.</span><span class="mi">0</span> <span class="p">-</span> <span class="o">!</span><span class="n">w</span>
+    <span class="o">!</span><span class="n">w</span>
+
+<span class="c1">// style: 'Call' if call option; otherwise 'Put'</span>
+<span class="c1">// s: stock price</span>
+<span class="c1">// k: strike price of option</span>
+<span class="c1">// t: time to expiration in years</span>
+<span class="c1">// r: risk free interest rate</span>
+<span class="c1">// v: volatility</span>
+<span class="k">let</span> <span class="n">blackscholes</span> <span class="n">style</span> <span class="n">s</span> <span class="n">k</span> <span class="n">t</span> <span class="n">r</span> <span class="n">v</span> <span class="p">=</span>
+    <span class="k">let</span> <span class="n">d1</span> <span class="p">=</span> <span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="n">s</span><span class="o">/</span><span class="n">k</span><span class="o">)+(</span><span class="n">r</span><span class="o">+</span><span class="n">v</span><span class="p">*</span><span class="n">v</span><span class="o">/</span><span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="o">)*</span><span class="n">t</span><span class="o">)/(</span><span class="n">v</span><span class="p">*</span><span class="n">sqrt</span><span class="p">(</span><span class="n">t</span><span class="o">))</span>
+    <span class="k">let</span> <span class="n">d2</span> <span class="p">=</span> <span class="n">d1</span><span class="p">-</span><span class="n">v</span><span class="p">*</span><span class="n">sqrt</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+    <span class="k">match</span> <span class="n">style</span> <span class="k">with</span>
+        <span class="p">|</span> <span class="nc">Call</span> <span class="p">-&gt;</span> <span class="n">s</span><span class="p">*</span><span class="n">cnd</span><span class="p">(</span><span class="n">d1</span><span class="o">)-</span><span class="n">k</span><span class="p">*</span><span class="n">exp</span><span class="o">(-</span><span class="n">r</span><span class="p">*</span><span class="n">t</span><span class="o">)*</span><span class="n">cnd</span><span class="p">(</span><span class="n">d2</span><span class="p">)</span>
+        <span class="p">|</span> <span class="nc">Put</span> <span class="p">-&gt;</span> <span class="n">k</span><span class="p">*</span><span class="n">exp</span><span class="o">(-</span><span class="n">r</span><span class="p">*</span><span class="n">t</span><span class="o">)*</span><span class="n">cnd</span><span class="o">(-</span><span class="n">d2</span><span class="o">)-</span><span class="n">s</span><span class="p">*</span><span class="n">cnd</span><span class="o">(-</span><span class="n">d1</span><span class="p">)</span>
+
+<span class="n">blackscholes</span> <span class="nc">Call</span> <span class="mi">60</span><span class="p">.</span><span class="mi">0</span> <span class="mi">65</span><span class="p">.</span><span class="mi">0</span> <span class="mi">0</span><span class="p">.</span><span class="mi">25</span> <span class="mi">0</span><span class="p">.</span><span class="mi">08</span> <span class="mi">0</span><span class="p">.</span><span class="mi">3</span><span class="p">;;</span>
+</code></pre></div></div>
+
+<p><strong>Reference</strong></p>
+
+<p>Fischer Black and Myron Scholes. <em>The Pricing of Options and Corporate Liabilities</em>. Journal of Political Economy, 1981.</p>
+
+		</div>
+	</div>
+
+
+	
+	<div class="related">
+		<h4>Related Posts</h4>
+		<ul class="posts">
+		    
+		    <li>
+			  <span>21 May 2018 &raquo;</span>
+			  <a href="http://localhost:4000/blog/2018/05/21/binomialtree/">Binomial Tree</a>
+		    </li>
+		    
+		    <li>
+			  <span>17 May 2018 &raquo;</span>
+			  <a href="http://localhost:4000/blog/2018/05/17/montecarlo/">Least-Squares Monte Carlo</a>
+		    </li>
+		    
+		    <li>
+			  <span>22 Dec 2017 &raquo;</span>
+			  <a href="http://localhost:4000/blog/2017/12/22/semaine16/">Semaine 16</a>
+		    </li>
+		    
+		</ul>
+	</div>
+	
+
+	<div class="post-footer">
+		<div class="column-1">
+			
+				<a href="http://localhost:4000/blog/2018/05/21/binomialtree/"><< Older</a>
+			
+		</div>
+		<div class="column-2"><a href="http://localhost:4000/ ">Home</a></div>
+		<div class="column-3">
+			
+				<span>Newer >></span>
+			
+		</div>
+	</div>
+</div>
+
+        <footer class="main-footer">
+            <div class="wc-container">
+                <div class="column one">
+                    <ul class="menu">
+    <li><a href="http://localhost:4000/about">About</a></li>
+    <li><a href="http://localhost:4000/blog">Blog</a></li>
+    <li><a href="http://localhost:4000/IFT3150">IFT3150</a></li>
+    <li><a href="https://www.github.com/brilhana">GitHub</a></li>
+</ul>
+
+                </div>
+                <div class="column two">
+                    
+                </div>
+            </div>
+            <p class="wc-container disclaimer">
+                Powered by <a href="http://jekyllrb.com" target="_blank">Jekyll</a>
+
+            </p>
+        </footer>
+        <script type="text/javascript">
+          /* To avoid render blocking css */
+          var cb = function() {
+            var l = document.createElement('link'); l.rel = 'stylesheet';
+            l.href = 'http://fonts.googleapis.com/css?family=Ubuntu+Mono&subset=latin';
+            var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
+          };
+          var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+              webkitRequestAnimationFrame || msRequestAnimationFrame;
+          if (raf) raf(cb);
+          else window.addEventListener('load', cb);
+        </script>
+        <!-- jQuery -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <!-- When no internet load JQuery from local -->
+        <script>window.jQuery || document.write('<script src="/assets/js/jquery.min.js"><\/script>')</script>
+        <!-- Site js -->
+        <script src="/assets/js/all.js"></script>
+        <!-- Google analytics  -->
+        
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-119500874-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+    </body>
+</html>

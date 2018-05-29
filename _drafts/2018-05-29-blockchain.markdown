@@ -51,3 +51,7 @@ for tail = 1:blockchain_limit
     println("Hash: $(blockchain[tail+1].hash)")
 end
 ```
+
+**Reference**
+
+Fischer Black and Myron Scholes. *The Pricing of Options and Corporate Liabilities*. Journal of Political Economy, 1981.
