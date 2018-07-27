@@ -18,7 +18,7 @@ Where:
 + `S` is the spot price of the underlying asset.
 + `K` is the strike price.
 + `r` is the risk free rate, expressed in terms of continuous compounding.
-+ `sigma`  is the volatility of returns of the underlying asset.
++ `sigma` is the volatility of returns of the underlying asset.
 
 Under certain assumptions on the asset and market:
 + The option is European and can only be exercised at expiration.
