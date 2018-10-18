@@ -11,6 +11,4 @@ I will use it from now on to cover a wide range of topics in mathematical and co
 ### Contact
 `alexandre DOT brilhante AT gmail DOT com`
 
-[CV](http://brilhana.github.io/assets/AlexandreBrilhanteCV.pdf)
-
 [GitHub](https://www.github.com/brilhana)
